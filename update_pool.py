@@ -56,7 +56,7 @@ def upload_badge_s3():
 class PusherClass:
     def __init__(self):
         self.api_key = os.getenv("PUSHER_API_KEY")
-        self.topic = f"dashboard-{os.getenv('SITE_ID')}"
+        self.topic = f"dashboard_{os.getenv('SITE_ID')}"
 
         self.pusher = pysher.Pusher(self.api_key)
         self.pusher.connection.bind('pusher:connection_established', self.connect_handler)
